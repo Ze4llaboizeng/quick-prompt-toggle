@@ -1,0 +1,12 @@
+{
+  "display_name": "Prompt Preset Panel",
+  "loading_order": 60,
+  "requires": [],
+  "optional": [],
+  "js": "index.js",
+  "css": "style.css",
+  "author": "custom",
+  "version": "1.2.0",
+  "homePage": "",
+  "auto_update": false
+}
