@@ -1,0 +1,361 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   Prompt Set Manager — SillyTavern Extension Styles
+   Matches ST's dark/warm aesthetic; uses ST CSS variables where available.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Panel wrapper ────────────────────────────────────────────────────────── */
+#psm-main-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    font-family: var(--mainFontFamily, 'Noto Sans', sans-serif);
+    font-size: 0.88rem;
+    color: var(--SmartThemeBodyColor, #ccc);
+}
+
+/* ── Top bar ──────────────────────────────────────────────────────────────── */
+.psm-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 10px 8px 10px;
+    background: rgba(0, 0, 0, 0.25);
+    border-bottom: 1px solid rgba(255, 200, 100, 0.12);
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.psm-logo {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--SmartThemeQuoteColor, #d4a84b);
+    letter-spacing: 0.02em;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.psm-logo i {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.psm-topbar-actions {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+/* ── Buttons ──────────────────────────────────────────────────────────────── */
+.psm-icon-btn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 10px;
+    border-radius: 4px;
+    border: 1px solid rgba(212, 168, 75, 0.4);
+    background: rgba(212, 168, 75, 0.12);
+    color: var(--SmartThemeQuoteColor, #d4a84b);
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    transition: background 0.15s, border-color 0.15s, transform 0.1s;
+    white-space: nowrap;
+}
+
+.psm-icon-btn:hover {
+    background: rgba(212, 168, 75, 0.22);
+    border-color: rgba(212, 168, 75, 0.7);
+    transform: translateY(-1px);
+}
+
+.psm-icon-btn:active {
+    transform: translateY(0);
+}
+
+/* ── Body / list ──────────────────────────────────────────────────────────── */
+.psm-body {
+    min-height: 44px;
+    padding: 4px 0;
+}
+
+.psm-list {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 2px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+/* ── Empty state ─────────────────────────────────────────────────────────── */
+.psm-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    padding: 18px 12px;
+    color: var(--SmartThemeBodyColor, #888);
+    opacity: 0.55;
+    font-size: 0.82rem;
+    text-align: center;
+}
+
+.psm-empty i {
+    font-size: 2rem;
+    opacity: 0.5;
+    margin-bottom: 3px;
+}
+
+.psm-empty p {
+    margin: 0;
+    font-weight: 600;
+}
+
+.psm-empty small {
+    opacity: 0.8;
+    line-height: 1.4;
+}
+
+/* ── Set item ─────────────────────────────────────────────────────────────── */
+.psm-set-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 8px 5px 6px;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    transition: background 0.15s, border-color 0.2s, box-shadow 0.2s;
+    cursor: default;
+}
+
+.psm-set-item:hover {
+    background: rgba(255, 255, 255, 0.065);
+    border-color: rgba(212, 168, 75, 0.22);
+}
+
+/* Apply flash animation */
+.psm-set-item.psm-flash {
+    animation: psmFlash 0.65s ease forwards;
+}
+
+@keyframes psmFlash {
+    0%   { background: rgba(80, 200, 120, 0.25); border-color: rgba(80, 200, 120, 0.55); }
+    60%  { background: rgba(80, 200, 120, 0.12); border-color: rgba(80, 200, 120, 0.30); }
+    100% { background: rgba(255, 255, 255, 0.03); border-color: rgba(255, 255, 255, 0.06); }
+}
+
+/* ── Drag handle ─────────────────────────────────────────────────────────── */
+.psm-set-drag-handle {
+    color: rgba(255, 255, 255, 0.18);
+    cursor: grab;
+    padding: 0 2px;
+    font-size: 0.75rem;
+    flex-shrink: 0;
+    user-select: none;
+}
+
+.psm-set-drag-handle:hover {
+    color: rgba(255, 255, 255, 0.45);
+}
+
+/* ── Set info ─────────────────────────────────────────────────────────────── */
+.psm-set-info {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    cursor: help;
+}
+
+.psm-set-name {
+    display: block;
+    font-weight: 600;
+    font-size: 0.86rem;
+    color: var(--SmartThemeBodyColor, #ddd);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.3;
+}
+
+.psm-set-meta {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 2px;
+    flex-wrap: wrap;
+}
+
+/* ── Badges ───────────────────────────────────────────────────────────────── */
+.psm-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 1px 6px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    line-height: 1.6;
+}
+
+.psm-on {
+    background: rgba(80, 200, 120, 0.18);
+    color: #6ddb96;
+    border: 1px solid rgba(80, 200, 120, 0.28);
+}
+
+.psm-off {
+    background: rgba(200, 80, 80, 0.14);
+    color: #d97878;
+    border: 1px solid rgba(200, 80, 80, 0.24);
+}
+
+.psm-date {
+    font-size: 0.68rem;
+    opacity: 0.42;
+    white-space: nowrap;
+}
+
+/* ── Per-item action buttons ─────────────────────────────────────────────── */
+.psm-set-btns {
+    display: flex;
+    gap: 3px;
+    flex-shrink: 0;
+    align-items: center;
+}
+
+.psm-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    background: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.55);
+    cursor: pointer;
+    font-size: 0.72rem;
+    transition: background 0.12s, color 0.12s, border-color 0.12s, transform 0.1s;
+    flex-shrink: 0;
+}
+
+.psm-btn:hover {
+    background: rgba(255, 255, 255, 0.14);
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+.psm-btn:active {
+    transform: translateY(0);
+}
+
+/* Apply button — green accent */
+.psm-apply-btn:hover {
+    background: rgba(80, 200, 120, 0.22);
+    color: #7de8a2;
+    border-color: rgba(80, 200, 120, 0.35);
+}
+
+/* Rename button — blue accent */
+.psm-rename-btn:hover {
+    background: rgba(80, 140, 220, 0.22);
+    color: #88bbf0;
+    border-color: rgba(80, 140, 220, 0.35);
+}
+
+/* Overwrite button — amber accent */
+.psm-update-btn:hover {
+    background: rgba(212, 168, 75, 0.22);
+    color: #e0b84a;
+    border-color: rgba(212, 168, 75, 0.35);
+}
+
+/* Delete button — red accent */
+.psm-del-btn:hover {
+    background: rgba(220, 70, 70, 0.22);
+    color: #f08080;
+    border-color: rgba(220, 70, 70, 0.35);
+}
+
+/* Up/down buttons — subtle */
+.psm-up-btn:hover,
+.psm-down-btn:hover {
+    background: rgba(160, 120, 220, 0.22);
+    color: #c8aaee;
+    border-color: rgba(160, 120, 220, 0.35);
+}
+
+/* ── Footer ───────────────────────────────────────────────────────────────── */
+.psm-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 7px 10px 5px 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.psm-hotkey-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.78rem;
+    color: rgba(255, 255, 255, 0.50);
+    white-space: nowrap;
+    cursor: default;
+}
+
+.psm-hotkey-label i {
+    opacity: 0.65;
+}
+
+.psm-hotkey-input {
+    width: 110px !important;
+    padding: 2px 6px !important;
+    font-size: 0.78rem !important;
+    border-radius: 4px !important;
+    height: auto !important;
+    background: rgba(0, 0, 0, 0.3) !important;
+    border: 1px solid rgba(255, 255, 255, 0.14) !important;
+    color: var(--SmartThemeBodyColor, #ccc) !important;
+    transition: border-color 0.15s;
+}
+
+.psm-hotkey-input:focus {
+    outline: none !important;
+    border-color: rgba(212, 168, 75, 0.5) !important;
+    box-shadow: 0 0 0 2px rgba(212, 168, 75, 0.12) !important;
+}
+
+.psm-version {
+    font-size: 0.68rem;
+    opacity: 0.28;
+    letter-spacing: 0.03em;
+    margin-left: auto;
+}
+
+/* ── Drawer header tweak ─────────────────────────────────────────────────── */
+#psm-drawer .inline-drawer-header {
+    gap: 6px;
+}
+
+#psm-drawer .inline-drawer-header i.fa-layer-group {
+    color: var(--SmartThemeQuoteColor, #d4a84b);
+}
+
+/* ── Responsive: narrow panels ───────────────────────────────────────────── */
+@media (max-width: 520px) {
+    .psm-set-item {
+        flex-wrap: wrap;
+    }
+    .psm-set-btns {
+        margin-left: auto;
+    }
+    .psm-icon-btn span {
+        display: none;
+    }
+}

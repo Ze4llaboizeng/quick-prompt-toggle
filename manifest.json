@@ -1,0 +1,12 @@
+{
+  "display_name": "Prompt Set Manager",
+  "loading_order": 10,
+  "requires": [],
+  "optional": [],
+  "js": "index.js",
+  "css": "style.css",
+  "author": "Custom",
+  "version": "1.1.0",
+  "homePage": "",
+  "auto_update": false
+}
